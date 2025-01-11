@@ -1,3 +1,18 @@
 .section {
   scroll-margin: 50px;
 }
+
+.section-title {
+  position: relative;
+}
+
+.section-title::after {
+  content:'';
+  position: absolute;
+  width: 1em;
+  height: 3px;
+  background: #000;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
