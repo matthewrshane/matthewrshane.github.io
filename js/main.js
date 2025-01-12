@@ -29,23 +29,36 @@ $(document).click(function(e) {
     }
 });
 
-// custom scrollspy implementation
+// activate scroll spy
+$(document).ready(function() {
+    scrollSpy();
+});
+
+// activate scroll spy
 $(window).on('scroll', function() {
-    // top of screen + half of screen height
-    var screen_mid = $(this).scrollTop() + (0.5 * self.innerHeight);
+    scrollSpy();
+});
+
+// custom scroll spy implementation
+function scrollSpy() {
+    // percentage of screen from top to use for scroll spy
+    const screen_percent = 0.25;
+
+    // top of screen + percent of screen height
+    var screen_pos = $(this).scrollTop() + (screen_percent * self.innerHeight);
 
     // store closest section info
     var closestSection = $('.section')[0];
-    var closestDist = Math.abs(screen_mid - closestSection.offsetTop);
+    var closestDist = screen_pos - closestSection.offsetTop;
 
     // get side navbar
     navbar = $('#navItems');
 
     // for each section
     $('.section').each(function() {
-        // check top and bottom (top + height) to find closest section to screen midpoint
-        var dist = Math.min(Math.abs(screen_mid - this.offsetTop), Math.abs(screen_mid - (this.offsetTop + this.offsetHeight)))
-        if(dist < closestDist) {
+        // find closest section top already passed by screen_pos
+        var dist = screen_pos - this.offsetTop;
+        if(dist > 0 && dist < closestDist) {
             closestSection = this;
             closestDist = dist;
         }
@@ -58,4 +71,4 @@ $(window).on('scroll', function() {
     // set closest section to be active
     closestLink = navbar.find('a[href="#' + $(closestSection).attr('id') + '"]')
     $(closestLink).addClass('active');
-});
+}
