@@ -1,5 +1,5 @@
 .section {
-  scroll-margin: 50px;
+  scroll-margin: 0;
 }
 
 .section-title {
@@ -40,6 +40,10 @@
   #main {
     margin-left: 0;
   }
+
+  .section {
+    scroll-margin: 4em;
+  }
 }
 
 .header-active {
@@ -52,4 +56,32 @@
 
 .sidebar {
   z-index: 10000;
+}
+
+#overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 9999;
+  cursor: pointer;
+}
+
+#overlay.header-active {
+  display: block;
+}
+
+.profile {
+  color: #fff;
+  text-align: center;
+}
+
+.closebar {
+  color: #fff;
+  text-align: right;
 }

@@ -14,20 +14,27 @@
 
 <body>
   <header id="header" class="sidebar">
-    <div class="d-flex flex-column h-100">
-      <nav class="navbar navbar-dark bg-dark h-100" id="navItems">
+    <div class="d-flex flex-column bg-dark h-100 p-3">
+      <div class="closebar d-lg-none">
+        <button type="button" class="btn-close btn-close-white header-close" aria-label="Close"></button>
+      </div>
+      <div class="profile">
+        <h3>Matthew Shane</h3>
+      </div>
+      <nav class="navbar navbar-dark" id="navItems">
         <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="#home">Home</a>
-          <a class="nav-item nav-link" href="#experience">Experience</a>
-          <a class="nav-item nav-link" href="#education">Education</a>
-          <a class="nav-item nav-link" href="#projects">Projects</a>
-          <a class="nav-item nav-link" href="#skills">Skills</a>
+          <a class="nav-item nav-link header-close active" href="#home">Home</a>
+          <a class="nav-item nav-link header-close" href="#experience">Experience</a>
+          <a class="nav-item nav-link header-close" href="#education">Education</a>
+          <a class="nav-item nav-link header-close" href="#projects">Projects</a>
+          <a class="nav-item nav-link header-close" href="#skills">Skills</a>
         </div>
       </nav>
     </div>
   </header>
 
   <main id="main">
+    <div id="overlay"></div>
     <nav class="navbar navbar-expand-lg d-lg-none px-3 bg-body-tertiary sticky-top">
       <a class="navbar-brand" href="#"><i class="bi bi-arrow-up"></i></a>
       <button class="navbar-toggler header-toggle" type="button" data-bs-toggle="offcanvas"

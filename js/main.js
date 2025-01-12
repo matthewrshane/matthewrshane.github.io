@@ -2,6 +2,14 @@
 $(document).on('click', '.header-toggle', function(e) {
     // toggle the sidebar active class
     $('body').toggleClass('header-active');
+    $('#overlay').toggleClass('header-active');
+});
+
+// register click event for sidebar closing buttons
+$(document).on('click', '.header-close', function(e) {
+    // remove the sidebar active class
+    if($('body').hasClass('header-active')) $('body').removeClass('header-active');
+    if($('#overlay').hasClass('header-active')) $('#overlay').removeClass('header-active');
 });
 
 // register document click event for closing the sidebar
@@ -17,6 +25,7 @@ $(document).click(function(e) {
     // remove the active class
     if($('body').hasClass('header-active')) {
         $('body').removeClass('header-active');
+        $('#overlay').removeClass('header-active');
     }
 });
 
