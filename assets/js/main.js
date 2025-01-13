@@ -42,7 +42,7 @@ $(window).on('scroll', function() {
 // custom scroll spy implementation
 function scrollSpy() {
     // percentage of screen from top to use for scroll spy
-    const screen_percent = 0.25;
+    const screen_percent = 0.15;
 
     // top of screen + percent of screen height
     var screen_pos = $(this).scrollTop() + (screen_percent * self.innerHeight);
@@ -72,3 +72,14 @@ function scrollSpy() {
     closestLink = navbar.find('a[href="#' + $(closestSection).attr('id') + '"]')
     $(closestLink).addClass('active');
 }
+
+fetch('test.json')
+  .then(response => response.json())
+  .then(data => {
+    // Do something with the JSON data
+    console.log(data);
+  })
+  .catch(error => {
+    // Handle errors
+    console.error('Error:', error);
+  });
