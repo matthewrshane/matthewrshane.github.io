@@ -72,14 +72,3 @@ function scrollSpy() {
     closestLink = navbar.find('a[href="#' + $(closestSection).attr('id') + '"]')
     $(closestLink).addClass('active');
 }
-
-fetch('test.json')
-  .then(response => response.json())
-  .then(data => {
-    // Do something with the JSON data
-    console.log(data);
-  })
-  .catch(error => {
-    // Handle errors
-    console.error('Error:', error);
-  });
